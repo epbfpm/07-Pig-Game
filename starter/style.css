@@ -1,5 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+.show-modal {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.75rem 3.5rem;
+  margin: 5rem 2rem;
+  border: none;
+  background-color: #fff;
+  color: #444;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-size: 1.5rem;
+}
+
+.modal p {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +66,9 @@ body {
 /* LAYOUT */
 main {
   position: relative;
-  width: 100rem;
+  width: 100%;
   height: 60rem;
+  margin: 2rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   filter: blur();
@@ -36,9 +78,13 @@ main {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .player {
   flex: 50%;
-  padding: 9rem;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +94,7 @@ main {
 /* ELEMENTS */
 .name {
   position: relative;
-  font-size: 4rem;
+  font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   word-spacing: 2px;
@@ -57,7 +103,7 @@ main {
 }
 
 .score {
-  font-size: 8rem;
+  font-size: 6rem;
   font-weight: 300;
   color: #c7365f;
   margin-bottom: auto;
@@ -82,7 +128,7 @@ main {
   opacity: 0.8;
   border-radius: 9px;
   color: #fff;
-  width: 65%;
+  width: 85%;
   padding: 2rem;
   text-align: center;
   transition: all 0.75s;
@@ -124,19 +170,28 @@ main {
 }
 
 .btn::first-letter {
-  font-size: 2.4rem;
+  font-size: 2rem;
   display: inline-block;
   margin-right: 0.7rem;
 }
 
 .btn--new {
-  top: 4rem;
+  top: 7rem;
+  z-index: 2;
+}
+
+.btn--modal {
+  top: -4rem;
+  z-index: 2;
+  width: 60%;
+  right: 50%;
+  left: 45%;
 }
 .btn--roll {
-  top: 39.3rem;
+  top: 33rem;
 }
 .btn--hold {
-  top: 46.1rem;
+  top: 38rem;
 }
 
 .btn:active {
@@ -151,7 +206,7 @@ main {
 .dice {
   position: absolute;
   left: 50%;
-  top: 16.5rem;
+  top: 22rem;
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
